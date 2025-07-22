@@ -1,4 +1,4 @@
-# Simple API
+# A Simple Foraging API
 
 Making a simple API with FastAPI and **uvicorn**.
 The main purpose is to try out FastAPI + documentation generation (with Redoc).
