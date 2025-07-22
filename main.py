@@ -11,7 +11,7 @@ app = FastAPI()
 fake_db = []
 
 
-# Defining a new data model called ForageItem, which inherits from BaseModel, so FastAPI knows how to parse, validate, and document it
+# Define a new data model called ForageItem, which inherits from BaseModel, so FastAPI knows how to parse, validate, and document it
 class ForageItem(BaseModel):
     id: int = Field(..., example=1, description="Unique ID for the item")
     name: str = Field(..., example="Chanterelle", description="Name of the mushroom or berry")                                     # Because `id` is required, the `...` means no default value
