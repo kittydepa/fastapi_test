@@ -28,7 +28,7 @@ Before you start, make sure you have the proper setup (especially if using VS Co
 uvicorn main:app --reload
 ```
 
-See [Step-by-step instructions]](./steps.md) for detailed instructions.
+See [Step-by-step instructions](./steps.md) for detailed instructions.
 
 ---
 
