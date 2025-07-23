@@ -36,6 +36,8 @@ See the [README](./README.md#setup) file for the required setup.
 
     * http://localhost:8000/redoc - shows your API in Redoc UI
 
+    **Troubleshooting**: To ensure that the the `uvicorn` command runs successfully, make sure you are using a [virtual environment](https://code.visualstudio.com/docs/python/tutorial-fastapi).
+
 ## Add a Pydantic model for `ForageItem`
 
 1. In your `main.py` file, add to the top, below the FastAPI import:
