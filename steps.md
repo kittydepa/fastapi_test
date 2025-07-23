@@ -82,7 +82,7 @@ See the [README](./README.md#setup) file for the required setup.
 
 1. Visit the [Swagger](http://localhost:8000/docs "http://localhost:8000/docs") or [Redoc](http://localhost:8000/redoc "http://localhost:8000/redoc") version of the API to see how it has been rendered.
 
-## Create basic `/items` endpoint to **POST** new items and **GET** all items
+## Create basic `/items` endpoint to **POST** new items
 
 1. Create an empty list to act as a "fake" database, after `app=FastAPI()`:
 
@@ -150,8 +150,10 @@ See the [README](./README.md#setup) file for the required setup.
         "photo_url": "https://example.com/chanterelle.jpg"
     }
     ```
+    ![Add items endpoint to POST](./images/create_basic_items_post.png)
 
     You should get a ``201 Created`` response and see your item echoed back.
+
 
 Full code added from this section:
 
@@ -197,4 +199,3 @@ def create_item(item: ForageItem):
     return item
 
 ```
-
