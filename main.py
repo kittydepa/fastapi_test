@@ -20,12 +20,12 @@ class ForageItem(BaseModel):
     location: str = Field(..., example="Grimsta Naturreservat", description="Where it was found")                                  # `description`shows up in the OpenAPI schema
     date: date = Field(..., example="2025-07-21", description="Date of the foraging event")
     is_edible: bool = Field(..., example=True, description="Whether the item is safe to eat")
-    notes: Optional[str] = Field(None, examples="Found under pine trees", description="Extra notes")
-    photo_url: Optional[HttpUrl] = Field(None, examples="https://example.com/photo.jpg", description="Optional image link")
+    notes: Optional[str] = Field(None, example="Found under pine trees", description="Extra notes")
+    photo_url: Optional[HttpUrl] = Field(None, example="https://example.com/photo.jpg", description="Optional image link")
 
 
 # Define a route: when someone visits GET / (the root), this function runs
-@app.get("/items", response_model=ForageItem, status_code=201)
+@app.post("/items", response_model=ForageItem, status_code=201)
 def create_item(item: ForageItem):
     # Check for duplicates by ID
     if any(existing.id == item.id for existing in fake_db):
