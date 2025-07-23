@@ -24,7 +24,7 @@ class ForageItem(BaseModel):
     photo_url: Optional[HttpUrl] = Field(None, example="https://example.com/photo.jpg", description="Optional image link")
 
 
-# Define a route: when someone visits GET / (the root), this function runs
+# Define a route
 @app.post("/items", response_model=ForageItem, status_code=201)
 def create_item(item: ForageItem):
     # Check for duplicates by ID
