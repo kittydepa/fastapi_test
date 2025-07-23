@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi import HTTPException
 from pydantic import BaseModel, Field, HttpUrl
 from typing import Optional
 from datetime import date
@@ -24,6 +25,13 @@ class ForageItem(BaseModel):
 
 
 # Define a route: when someone visits GET / (the root), this function runs
-@app.get("/")
-def read_root():
-    return {"message": "Welcome ti Kitty's Foraging Log API"} # Returns a simple JSON response
+@app.get("/items", response_model=ForageItem, status_code=201)
+def create_item(item: ForageItem):
+    # Check for duplicates by ID
+    if any(existing.id == item.id for existing in fake_db):
+        raise HTTPException(status_code=400, detail="Item with this ID already exists.")
+
+    # Add the item to the fake database
+    fake_db.append(item)
+
+    return item
