@@ -226,7 +226,21 @@ Now that the API allows you to create (but not yet store) items, add to the scri
 
     * The `response_model` declares that it will return a list of `ForageItem`s.
 
-### Testing
+1. (Optional) Test out the `GET` function:
+
+    * Run the API from your CLI.
+
+    * Go to `http://127.0.0.1:8000/docs` (features **Try it out**).
+
+    * In the `POST` section, click **Try it out** and paste in the example value.
+
+    * Click **Execute**.
+
+        (Tip: try adding another example response :smile:.)
+
+    * Go to the `GET` section, and click **Try it out**.
+
+    You should see the example values you executed in the `POST` section.
 
 
 
