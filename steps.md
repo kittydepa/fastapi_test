@@ -230,17 +230,46 @@ Now that the API allows you to create (but not yet store) items, add to the scri
 
     * Run the API from your CLI.
 
-    * Go to `http://127.0.0.1:8000/docs` (features **Try it out**).
+    * Go to http://127.0.0.1:8000/docs (features **Try it out**).
 
     * In the `POST` section, click **Try it out** and paste in the example value.
 
-    * Click **Execute**.
-
-        (Tip: try adding another example response :smile:.)
+    * Click **Execute**. (Tip: try adding another example response :smile:.)
 
     * Go to the `GET` section, and click **Try it out**.
 
-    You should see the example values you executed in the `POST` section.
+    You should see the example(s) values you executed in the `POST` section.
+
+## Retrieve foraged items by ID
+
+To retrieve foraged items by its unique ID, add `GET /items/{id}` by adding the following to `main.py`:
+
+```python
+from fastapi import Path
+
+# Add this below the other routes
+@app.get("/items/{item_id}", resposne_model=ForageItem)
+def get_item_by_id(item_id: int = Path(..., description="ID of the item you want to retrieve")):
+    # Search the fake database for the item
+    for item in fake_db:
+        if item.id == item_id:
+            return item
+
+    # If not found, raise a 404 error
+    raise HTTPException(status_code=404, detail="Item not found. Try another ID number.")
+```
+ **Note:** `Path(...)` is optional but useful for docs (you can add more metadata or validations here). It is a function from FastAPI that lets you describe and validate path parameters. It allows you to:
+
+ * Set constraints or rules
+
+ * Declare default values if the parameter is not required
+
+ * Add more descriptive information for documentation (for example, with Redocly or Swagger)
+
+## Delete items by ID
+(With `DELETE /items/{id}`)
 
 
+## Update existing entries
 
+(With `PUT /items/{id}`)
