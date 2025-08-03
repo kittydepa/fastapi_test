@@ -1,10 +1,10 @@
 # Step-by-step instructions
 
-## Setup
+## Requirements
 
-See the [README](./README.md#setup) file for the required setup.
+See the [README](../README.md#setup) file for the requirements.
 
-## Testing out `fastapi` and `uvicorn`
+## A. Setup `fastapi` and `uvicorn`
 
 1. Set up your FastAPI by creating your `main.py` file.
 
@@ -39,7 +39,7 @@ See the [README](./README.md#setup) file for the required setup.
     **Troubleshooting**: To ensure that the the `uvicorn` command runs successfully, make sure you are using a [virtual environment](https://code.visualstudio.com/docs/python/tutorial-fastapi) (venv).
 
 
-## Add a Pydantic model for `ForageItem`
+## B. Add a Pydantic model for `ForageItem`
 
 1. In your `main.py` file, add to the top, below the FastAPI import:
 
@@ -82,7 +82,7 @@ See the [README](./README.md#setup) file for the required setup.
 
 1. Visit the [Swagger](http://localhost:8000/docs "http://localhost:8000/docs") or [Redoc](http://localhost:8000/redoc "http://localhost:8000/redoc") version of the API to see how it has been rendered.
 
-## Create basic `/items` endpoint to **POST** new items
+## C. Create basic `/items` endpoint to **POST** new items
 
 1. Create an empty list to act as a "fake" database, after `app=FastAPI()`:
 
@@ -200,7 +200,7 @@ def create_item(item: ForageItem):
 
 ```
 
-## Add `GET /items` to list all foraged items
+## D. Add `GET /items` to list all foraged items
 
 Now that the API allows you to create (but not yet store) items, add to the script to be able to retrieve items.
 
@@ -240,7 +240,7 @@ Now that the API allows you to create (but not yet store) items, add to the scri
 
     You should see the example(s) values you executed in the `POST` section.
 
-## Retrieve foraged items by ID
+## E. Retrieve foraged items by ID
 
 To retrieve foraged items by its unique ID, add `GET /items/{id}` by adding the following to `main.py`:
 
@@ -266,10 +266,10 @@ def get_item_by_id(item_id: int = Path(..., description="ID of the item you want
 
  * Add more descriptive information for documentation (for example, with Redocly or Swagger)
 
-## Delete items by ID
+## F. Delete items by ID
 (With `DELETE /items/{id}`)
 
 
-## Update existing entries
+## G. Update existing entries
 
 (With `PUT /items/{id}`)
