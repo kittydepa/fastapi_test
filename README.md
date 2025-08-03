@@ -3,6 +3,16 @@
 Making a simple API with FastAPI and **uvicorn**.
 The main purpose is to try out FastAPI + documentation generation (with Redoc).
 
+Another purpose of this project is to learn basic usage of FastAPI, by following the core **CRUD** pattern:
+
+* <ins>C</ins>reate with `POST`
+
+* <ins>R</ins>ead with `GET`
+
+* <ins>U</ins>pdate with `PUT`
+
+* <ins>D</ins>elete with`DELETE`
+
 This API will be a simple foraging log, including information about mushrooms and berries you can forage in Sweden.
 
 # Setup
