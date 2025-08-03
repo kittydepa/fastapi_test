@@ -62,7 +62,7 @@ See the [README](./README.md#setup) file for the required setup.
         photo_url: Optional[HttpUrl] = Field(None, example="https://example.com/photo.jpg" description="Optional image link")
     ```
 
-    Explanation of the Python constructs used:
+    *Explanation of the Python constructs used:*
 
     * `BaseModel` a **class** that is the "core" of Pydandic. All your data models inherit from it.
 
@@ -109,7 +109,7 @@ See the [README](./README.md#setup) file for the required setup.
     ...
     ```
 
-    Explantion of elements used:
+    *Explantion of elements used:*
 
     * This creates a `POST` endpoint at `/items`
 
@@ -199,3 +199,34 @@ def create_item(item: ForageItem):
     return item
 
 ```
+
+## Add `GET /items` to list all foraged items
+
+Now that the API allows you to create (but not yet store) items, add to the script to be able to retrieve items.
+
+1. Add the following to `main.py`:
+
+    * Import `typing` from `List`
+    * Add `@app.get` and the following function below the existing `POST` route
+
+    ```python
+    from typing import List
+    ... # Rest of the script
+
+    @app.get("/items", response_model=List[ForageItem])
+    def get_all_items():
+        return fake_db
+    ```
+
+    *Explanation of what was added:*
+
+    For `@app.get`,
+
+    * The function defines a **GET endpoint** at `/items`.
+
+    * The `response_model` declares that it will return a list of `ForageItem`s.
+
+### Testing
+
+
+

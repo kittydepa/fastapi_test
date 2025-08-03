@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi import HTTPException
 from pydantic import BaseModel, Field, HttpUrl
 from typing import Optional
+from typing import List
 from datetime import date
 
 
@@ -35,3 +36,9 @@ def create_item(item: ForageItem):
     fake_db.append(item)
 
     return item
+
+# Add GET /items to return all entries
+@app.get("/items", response_model=List[ForageItem])
+def get_all_items():
+    return fake_db
+
